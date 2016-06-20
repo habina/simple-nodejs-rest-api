@@ -1,0 +1,13 @@
+{
+    "name": "node-api",
+    "main": "server.js",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "4.x",
+        "morgan" : "1.7.0",
+        "mongodb": "2.1.18",
+        "body-parser": "1.15.2",
+        "connect": "3.4.1"
+    }
+}
