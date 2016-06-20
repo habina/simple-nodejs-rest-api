@@ -54,17 +54,16 @@ exports.addUser = function(req, res) {
 
 exports.updateUser = function(req, res) {
     var id = req.params.id;
-    var body = req.body;
     console.log('Updating user: ' + id);
-    console.log(JSON.stringify(body));
+    console.log(JSON.stringify(req.body));
     userDb.collection('users', function(err, collection) {
-        collection.update({'_id':new require('mongodb').ObjectID(id)}, body, {safe:true}, function(err, result) {
+        collection.update({'_id':new require('mongodb').ObjectID(id)}, req.body, {safe:true}, function(err, result) {
             if (err) {
                 console.log('Error updating user: ' + err);
                 res.send({'error':'An error has occurred'});
             } else {
                 console.log('' + result + ' document(s) updated');
-                res.send(user);
+                res.send(req.body);
             }
         });
     });
